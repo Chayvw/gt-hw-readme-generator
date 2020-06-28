@@ -24,8 +24,8 @@ const questions = [
     // fix 
     {
         type: "input",
-        message: "Would you like to add table of contents?",
-    name: "title"
+        message: "What are the steps to install the application?",
+    name: "installation"
     },
 
     {
@@ -84,9 +84,8 @@ function writeToFile(fileName, data) {
     # ${title.charAt(0).toUpperCase() + title.slice(1)}
 
 ## ${description}
-## Table of Contents (Optional)
+## Table of Contents
 
-If your README is very long, add a table of contents to make it easy for users to find what they need.
 
 * [Installation](#installation)
 * [Usage](#usage)
