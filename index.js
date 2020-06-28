@@ -21,6 +21,12 @@ const questions = [
         message: "What is your project name? ",
     name: "title"
     },
+    // fix 
+    {
+        type: "input",
+        message: "Would you like to add table of contents?",
+    name: "title"
+    },
 
     {
         type: "input",
@@ -47,6 +53,11 @@ const questions = [
         type: "input",
         message: "What does the user need to know about contributing to the repo ",
     name: "contributing"
+    },
+    {
+        type: "input",
+        message: "What would a test run off the app entail ?",
+    name: "test"
     }
 
 ];
@@ -67,7 +78,7 @@ function writeToFile(fileName, data) {
 }
  function createReadMe(newData){
     const { userName, email, title, description, license, dependencies, repo, contributing} = newData;
-    
+
     return `
       
     # ${title.charAt(0).toUpperCase() + title.slice(1)}
@@ -82,7 +93,21 @@ If your README is very long, add a table of contents to make it easy for users t
 * [Credits](#credits)
 * [License](#license)
 
-      `
+## Installation
+
+## Usage 
+
+## Credits
+
+## License
+
+## Badges
+
+## Contributing
+
+## Tests
+
+`
 
  }
 
