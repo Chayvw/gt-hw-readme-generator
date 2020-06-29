@@ -1,34 +1,34 @@
-function createReadMe(newData){
-    const { userName, email, title, description, license, dependencies, repo, contributing} = newData;
+// function createReadMe(newData){
+//     const { userName, email, title, description, license, dependencies, repo, contributing} = newData;
 
-    return `
+//     return `
       
-    # ${title.charAt(0).toUpperCase() + title.slice(1)}
+//     # ${title.charAt(0).toUpperCase() + title.slice(1)}
 
-## ${description}
-## Table of Contents
+// ## ${description}
+// ## Table of Contents
 
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [Credits](#credits)
-* [License](#license)
+// * [Installation](#installation)
+// * [Usage](#usage)
+// * [Credits](#credits)
+// * [License](#license)
 
-## Installation
+// ## Installation
 
-## Usage 
+// ## Usage 
 
-## Credits
+// ## Credits
 
-## License
+// ## License
 
-## Badges
+// ## Badges
 
-## Contributing
+// ## Contributing
 
-## Tests
+// ## Tests
 
-`
+// `
 
- }
- module.exports = createReadMe;
+//  } 
+//  module.exports = createReadMe;
