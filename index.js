@@ -33,7 +33,6 @@ const questions = [
         name: "email"
     },
 
-    // fix 
     {
         type: "input",
         message: "What are the steps to install the application?",
@@ -50,7 +49,7 @@ const questions = [
     {
         type: "input",
         message: "What does the user need to know about using the repo? ",
-        name: "repo"
+        name: "usage"
     },
 
     {
@@ -60,11 +59,17 @@ const questions = [
     },
     {
         type: "input",
+        message: "Would you like to list any contributors ?",
+        name: "contributing"
+    },
+    {
+        type: "input",
         message: "What would a test run off the app entail ?",
         name: "test"
     }
 
 ];
+// inquirer will run the series of questions from the array then the promise is that the information will be written into the md file with a .catch as well
 inquirer.prompt(questions)
     .then((response) => {
         console.log(response)
@@ -85,8 +90,10 @@ function writeToFile(fileName, data) {
         else { console.log("Story Saved") }
     })
 }
+// use of object deconstructing and temp lit to plug the const right into the text
 function createReadMe(newData) {
     const { userName, email, title, description, installation, usage, license, dependencies, repo, contributing, test, credits } = newData;
+    // will return the text that will be used for the md file 
 
     return `
       
@@ -129,10 +136,3 @@ If you have any questions please feel free to reach out to me via my email ${ema
 
 }
 
-// // function to initialize program
-// function init() {
-
-// }
-
-// function call to initialize program
-// init();
