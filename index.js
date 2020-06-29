@@ -7,6 +7,22 @@ const fs = require('fs');
 const questions = [
     {
         type: "input",
+        message: "What is your project name? ",
+    name: "title"
+    },
+    {
+        type: "input",
+        message: "Write a short description of your project",
+    name: "description"
+    },
+    {
+        type: "input",
+        message: "What command should your project run to install dependencies? ",
+    name: "installation"
+    },
+
+    {
+        type: "input",
         message: "What is your Github username?",
         name: "userName"
     },
@@ -16,11 +32,7 @@ const questions = [
         message: "What is your email address? ",
     name: "email"
     },
-    {
-        type: "input",
-        message: "What is your project name? ",
-    name: "title"
-    },
+  
     // fix 
     {
         type: "input",
@@ -28,31 +40,23 @@ const questions = [
     name: "installation"
     },
 
-    {
-        type: "input",
-        message: "Write a short description of your project",
-    name: "description"
-    },
-    {
-        type: "list",
-        message: "What kind of license should your project have? ",
-        choices: [ "a", "b", "charlie"],
-    name: "license"
-    },
-    {
-        type: "input",
-        message: "What command should your project run to install dependencies? ",
-    name: "dependencies"
-    },
+    
+    // {
+    //     type: "list",
+    //     message: "Choose the license  you would like to use the MIT license and badge? "
+    // name: "license"
+    // },
+    
     {
         type: "input",
         message: "What does the user need to know about using the repo? ",
     name: "repo"
     },
+    
     {
         type: "input",
-        message: "What does the user need to know about contributing to the repo ",
-    name: "contributing"
+        message: "Who does the user want to credit on the repo ? ",
+    name: "credits"
     },
     {
         type: "input",
@@ -65,8 +69,13 @@ inquirer.prompt(questions)
  .then((response)=>{
      console.log(response)
      writeToFile("samplereadme.md",response)
-
  })
+ .catch(function(err){
+     console.log(err);
+
+ }     
+
+);
 // function to write README file
 function writeToFile(fileName, data) {
     console.log(fileName, data)
@@ -77,13 +86,14 @@ function writeToFile(fileName, data) {
       })
 }
  function createReadMe(newData){
-    const { userName, email, title, description, license, dependencies, repo, contributing} = newData;
+    const { userName, email, title, description, installation, usage, license, dependencies, repo, contributing, test, credits } = newData;
 
     return `
       
     # ${title.charAt(0).toUpperCase() + title.slice(1)}
 
-## ${description}
+## Description
+${description}
 ## Table of Contents
 
 
@@ -93,18 +103,25 @@ function writeToFile(fileName, data) {
 * [License](#license)
 
 ## Installation
+${installation}
 
 ## Usage 
+${usage}
+
 
 ## Credits
+${credits}
 
 ## License
+${license}
 
 ## Badges
 
 ## Contributing
+${contributing}
 
 ## Tests
+${test}
 
 `
 
